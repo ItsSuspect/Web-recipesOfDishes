@@ -1,28 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {overflow-x: hidden;}
+
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 400px; /* Фиксированная ширина поисковой строки */
+    height: 40px; /* Фиксированная высота поисковой строки */
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #search-input {
-    width: 300px;
+    flex: 1;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
+    border: none;
+    outline: none;
+    appearance: none;
+}
+
+.clear-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 4px 7px;
+    color: #000000;
+    border-radius: 50%; /* Сделаем кнопку круглой */
+    transition: background-color 0.3s, border-radius 0.3s; /* Плавное изменение стилей */
+}
+
+.clear-button:hover {
+    background-color: #4caf50;
+    color: #fff; /* Изменение цвета текста при наведении */
 }
 
 #suggestions {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    border: 1px solid #ccc;
-    border-top: none;
     max-height: 150px;
     overflow-y: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#suggestions li {
-    padding: 5px;
+.suggestion {
+    padding: 10px;
     cursor: pointer;
 }
 
-#suggestions li:hover {
-    background-color: #f0f0f0;
+.suggestion:hover {
+    background-color: #4caf50;
+}
+
+#selected-products {
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 0;
+    width: 300px; /* Ширина поисковой строки */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.selected-product {
+    display: inline-flex; /* Используем inline-flex для автоматического переноса на следующую строку */
+    align-items: center;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 14px; /* Увеличим размер шрифта */
+    border: 1px solid #4caf50; /* Добавляем границу */
+}
+
+.remove-button {
+    border: none;
+    background-color: #fff;
+    color: #4caf50;
+    cursor: pointer;
+    margin-left: 5px;
+    border-radius: 50%; /* Сделаем кнопку круглой */
+    padding: 4px 7px;
+    font-size: 12px;
+    transition: background-color 0.3s, border-radius 0.3s; /* Плавное изменение стилей */
+}
+
+.remove-button:hover {
+    background-color: #4caf50;
+    color: #fff; /* Изменение цвета текста при наведении */
 }
