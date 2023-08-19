@@ -1,4 +1,4 @@
-package web.peely.Notes;
+package web.peely.Recipes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

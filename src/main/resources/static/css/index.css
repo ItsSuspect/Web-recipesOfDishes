@@ -111,3 +111,22 @@ body {
     background-color: #4caf50;
     color: #fff; /* Изменение цвета текста при наведении */
 }
+
+.find-button {
+    display: block;
+    border: none;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin: 10px auto;
+    font-size: 16px;
+    transition: background-color 0.3s, border-radius 0.3s; /* Плавное изменение стилей */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.find-button:hover {
+    background-color: #45a049;
+    color: #ffffff;
+}

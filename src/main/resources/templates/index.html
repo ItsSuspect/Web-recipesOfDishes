@@ -1,27 +1,43 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Описание сайта">
-    <meta name="keywords" content="Ключевые слова">
-    <meta name="language" content="RU, EN">
-    <meta name="author" content="Сидоров Сергей, sergey.4181.s@yandex.ru">
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Описание сайта">
+        <meta name="keywords" content="Ключевые слова">
+        <meta name="language" content="RU, EN">
+        <meta name="author" content="Сидоров Сергей, sergey.4181.s@yandex.ru">
 
-    <title>Главная страница</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}">
-</head>
-<body>
-    <main>
-        <div class="input-container">
-            <input type="text" id="search-input" placeholder="Введите поисковый запрос">
-            <button id="clear-input-button" class="clear-button">✕</button>
-        </div>
-        <ul id="suggestions"></ul>
-        <ul id="selected-products"></ul>
+        <title>Главная страница</title>
+        <link rel="stylesheet" th:href="@{/css/index.css}">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <script th:src="@{/js/index.js}"></script>
-    </main>
-</body>
+        <script th:inline="javascript">
+            var suggestions = /*[[${suggestions.![getProduct()]}]]*/ [];
+        </script>
+    </head>
+    <body>
+        <main>
+            <form id="recipe-form" action="/" method="post">
+                <div class="input-container">
+                    <input type="text" id="search-input" placeholder="Введите поисковый запрос">
+                    <button id="clear-input-button" class="clear-button">✕</button>
+                </div>
+                <ul id="suggestions"></ul>
+                <ul id="selected-products"></ul>
+
+                <button type="submit" id="find-recipes-button" class="find-button">Найти рецепты</button>
+            </form>
+
+            <div th:each="recipe : ${recipes}">
+                <h2 th:text="${recipe?.name}"></h2>
+                <p th:text="${recipe?.description}"></p>
+                <ul>
+                    <li th:each="ingredient : ${recipe?.ingredients}" th:text="${ingredient?.name}"></li>
+                </ul>
+                <hr/>
+            </div>
+        </main>
+    </body>
+</html>

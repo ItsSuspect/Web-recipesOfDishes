@@ -1,17 +1,9 @@
 $(document).ready(function () {
-    const suggestions = [
-        "Курица",
-        "Куринные бедра",
-        "Кукуруза",
-        "Кускус",
-        "Кулебяка",
-        // ...другие подсказки
-    ];
-
     const $searchInput = $("#search-input");
     const $clearInputButton = $("#clear-input-button");
     const $suggestionsList = $("#suggestions");
     const $selectedProductsList = $("#selected-products");
+    const $findRecipesButton = $("#find-recipes-button");
     const selectedProducts = [];
 
     $searchInput.on("input", function () {
@@ -65,5 +57,27 @@ $(document).ready(function () {
         if (!$(e.target).closest("#search-input, #suggestions").length) {
             $suggestionsList.empty();
         }
+    });
+
+    $findRecipesButton.click(function () {
+        // Создаем скрытое поле внутри формы и добавляем в него данные
+        var selectedProducts = $('#selected-products li').map(function() {
+            return $(this).text();
+        }).get();
+
+        // Удалите старое скрытое поле, если оно уже существует
+        $('#selected-products-input').remove();
+
+        // Создаем новое скрытое поле
+        var inputField = document.createElement('input');
+        inputField.type = 'hidden';
+        inputField.name = 'selectedProducts';
+        inputField.value = selectedProducts.join(',');
+
+        // Добавляем скрытое поле в форму
+        $('#recipe-form').append(inputField);
+
+        // Отправляем форму на сервер
+        $('#recipe-form').submit();
     });
 });
