@@ -1,5 +1,7 @@
 package web.peely.Recipes.service;
 
+import web.peely.Recipes.entity.Products;
+import web.peely.Recipes.entity.Recipes;
 import web.peely.Recipes.entity.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +21,9 @@ public class RecipeService {
 
     public List<Recipes> allRecipes() {
         return recipesRepository.findAll();
+    }
+
+    public List<Products> allProducts() {
+        return productsRepository.findAll();
     }
 }

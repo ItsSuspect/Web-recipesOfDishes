@@ -62,7 +62,7 @@ $(document).ready(function () {
     $findRecipesButton.click(function () {
         // Создаем скрытое поле внутри формы и добавляем в него данные
         var selectedProducts = $('#selected-products li').map(function() {
-            return $(this).text();
+            return $(this).text().replace("✕", "");
         }).get();
 
         // Удалите старое скрытое поле, если оно уже существует

@@ -8,10 +8,65 @@
 
 html {overflow-x: hidden;}
 
-body {
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?odczg7');
+    src:  url('../fonts/icomoon.eot?odczg7#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?odczg7') format('truetype'),
+    url('../fonts/icomoon.woff?odczg7') format('woff'),
+    url('../fonts/icomoon.svg?odczg7#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #323232;
+    align-items: center;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#logo {
+    display: block;
+    margin: 20px;
+    font-size: 1.5em;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    height: 42px;
+    width: 42px;
+    display: block;
+    position: relative;
+    margin: 20px 10px;
+}
+
+.account:before {
+    font-family: 'icomoon';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
+    line-height: 1em;
+    color: #ffffff;
+    content: "\e908";
+}
+
+main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
@@ -21,8 +76,8 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    width: 400px; /* Фиксированная ширина поисковой строки */
-    height: 40px; /* Фиксированная высота поисковой строки */
+    width: 450px;
+    height: 45px;
     border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
@@ -31,7 +86,6 @@ body {
 
 #search-input {
     flex: 1;
-    width: 100%;
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -59,6 +113,7 @@ body {
     margin: 0;
     padding: 0;
     max-height: 150px;
+    width: 450px;
     overflow-y: auto;
     background-color: #fff;
     border-radius: 10px;
@@ -129,4 +184,52 @@ body {
 .find-button:hover {
     background-color: #45a049;
     color: #ffffff;
+}
+
+.recipe-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    width: 600px;
+}
+
+.recipe-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.recipe-description {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 15px;
+}
+
+.recipe-ingredients {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.recipe-ingredients li {
+    margin-bottom: 5px;
+}
+
+.recipe-container:last-child {
+    margin-bottom: 0; /* Убираем нижний отступ для последнего рецепта */
+}
+
+.recipe-header {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.recipe-error {
+    font-size: 20px;
+    font-weight: 400;
+    color: #af2a2a;
 }
